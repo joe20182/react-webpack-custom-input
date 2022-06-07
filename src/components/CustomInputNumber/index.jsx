@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import classes from "./index.module.css";
+import StepButton from "./StepButton";
 
 const CustomInputNumber = ({
   min,
@@ -38,31 +40,37 @@ const CustomInputNumber = ({
 
   return (
     <div className={classes.InputWrapper}>
-      <button
-        className={classes.MinusBtn}
+      <StepButton
         onClick={() => clickHandler(-1)}
-        type="button"
         disabled={disabled}
+        variant="minus"
       >
         -
-      </button>
+      </StepButton>
       <input
         type="number"
         name={name}
         value={val}
         onChange={changeHandler}
         disabled={disabled}
+        onBlur={onBlur}
       />
-      <button
-        className={classes.AddBtn}
-        onClick={() => clickHandler(1)}
-        type="button"
-        disabled={disabled}
-      >
+      <StepButton onClick={() => clickHandler(1)} disabled={disabled}>
         +
-      </button>
+      </StepButton>
     </div>
   );
+};
+
+CustomInputNumber.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  name: PropTypes.string,
+  value: PropTypes.number,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default CustomInputNumber;

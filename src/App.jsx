@@ -7,7 +7,7 @@ const App = () => {
       <h1>APP</h1>
       <input type="number" />
       <p>789 qwe</p>
-      <CustomInputNumber />
+      <CustomInputNumber onBlur={console.log} />
     </div>
   );
 };
