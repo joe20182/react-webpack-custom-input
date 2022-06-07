@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import classes from "./index.module.css";
 import StepButton from "./StepButton";
@@ -14,6 +14,11 @@ const CustomInputNumber = ({
   disabled,
 }) => {
   const [val, setVal] = useState(value);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    typeof onChange !== "undefined" && onChange({ target: inputRef.current });
+  }, [val]);
 
   const getTargetValue = (targetValue) => {
     if (typeof min !== "undefined" && targetValue < min) {
@@ -48,6 +53,7 @@ const CustomInputNumber = ({
         -
       </StepButton>
       <input
+        ref={inputRef}
         type="number"
         name={name}
         value={val}

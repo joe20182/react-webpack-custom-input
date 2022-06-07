@@ -1,13 +1,23 @@
 import React from "react";
 import CustomInputNumber from "./components/CustomInputNumber";
+import RoomAllocation from "./components/RoomAllocation";
+import classes from "./App.module.css";
 
 const App = () => {
   return (
-    <div>
-      <h1>APP</h1>
-      <input type="number" />
-      <p>789 qwe</p>
-      <CustomInputNumber onBlur={console.log} />
+    <div className={classes.AppWrapper}>
+      <h2>CustomInputNumber</h2>
+      <CustomInputNumber
+        onBlur={console.log}
+        onChange={console.log}
+        max={10}
+        min={-6}
+        disabled={false}
+        value={3}
+        step={3}
+      />
+      <h2>RoomAllocation</h2>
+      <RoomAllocation />
     </div>
   );
 };
