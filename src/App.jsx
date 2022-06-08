@@ -8,8 +8,8 @@ const App = () => {
     <div className={classes.AppWrapper}>
       <h2>CustomInputNumber</h2>
       <CustomInputNumber
-        onBlur={console.log}
-        onChange={console.log}
+        onBlur={() => {}}
+        onChange={() => {}}
         max={10}
         min={-6}
         disabled={false}
