@@ -17,7 +17,7 @@ const App = () => {
         step={3}
       />
       <h2>RoomAllocation</h2>
-      <RoomAllocation />
+      <RoomAllocation guest={8} room={3} />
     </div>
   );
 };

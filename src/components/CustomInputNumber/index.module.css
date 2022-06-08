@@ -1,6 +1,6 @@
 .InputWrapper {
   padding: 8px;
-  background-color: #eee;
+  /* background-color: #eee; */
   display: inline-flex;
   align-items: center;
 }
@@ -19,6 +19,7 @@
   border: none;
   margin: 0 8px;
   text-align: center;
+  border: 1px solid #ccc;
 }
 .InputWrapper input:focus {
   outline: none;
@@ -30,6 +31,7 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: 400;
+  background-color: transparent;
 }
 .StepBtn:disabled {
   color: #ccc;

@@ -1,0 +1,41 @@
+.RoomAllocationWrapper {
+  padding: 20px;
+  border: 2px dotted #ccc;
+  margin-bottom: 40px;
+}
+.SumWrapper {
+  margin-bottom: 40px;
+}
+.SumTitle {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.GuysLeft {
+  background-color: #e0faff;
+  color: #999;
+  border: 1px solid #9bc6cf;
+  border-radius: 2px;
+  padding: 10px 20px;
+}
+.RoomWrapper {
+  border-bottom: 1px solid #ccc;
+  min-width: 320px;
+  margin-bottom: 20px;
+}
+.RoomWrapper:last-child {
+  border-bottom: none;
+  margin-bottom: 0px;
+}
+.RoomTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.AllocationBar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.AllocationDesc {
+  color: #aaa;
+  font-size: 14px;
+}

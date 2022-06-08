@@ -12,6 +12,7 @@ const CustomInputNumber = ({
   onChange,
   onBlur,
   disabled,
+  disableAdd = false,
 }) => {
   const [val, setVal] = useState(value);
   const inputRef = useRef();
@@ -32,6 +33,9 @@ const CustomInputNumber = ({
 
   // 點擊step按鈕
   const clickHandler = (num) => {
+    // 禁止增加
+    if (num === 1 && disableAdd) return;
+
     setVal((preVal) => {
       const res = +preVal + num * step;
       return getTargetValue(res);
@@ -77,6 +81,7 @@ CustomInputNumber.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   disabled: PropTypes.bool,
+  disableAdd: PropTypes.bool,
 };
 
 export default CustomInputNumber;
