@@ -6,7 +6,7 @@ import classes from "./index.module.css";
 // 房間一律為四人房
 const MAX_PERSON = 4;
 
-const Room = ({ onChange, disabled }) => {
+const Room = ({ onChange, disabled, totalLeft }) => {
   const [guys, setGuys] = useState(1);
   const [children, setChildren] = useState(0);
 
@@ -40,6 +40,7 @@ const Room = ({ onChange, disabled }) => {
         </div>
         <CustomInputNumber
           min={1}
+          max={Math.min(totalLeft + guys, MAX_PERSON - children)}
           value={1}
           onChange={guyChangeHandler}
           disabled={disabled}
@@ -52,6 +53,7 @@ const Room = ({ onChange, disabled }) => {
         </div>
         <CustomInputNumber
           min={0}
+          max={Math.min(totalLeft + children, MAX_PERSON - guys)}
           onChange={childChangeHandler}
           disabled={disabled}
           disableAdd={full}
@@ -64,6 +66,7 @@ const Room = ({ onChange, disabled }) => {
 Room.propTypes = {
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  totalLeft: PropTypes.number,
 };
 
 export default Room;

@@ -17,7 +17,7 @@ const App = () => {
         step={3}
       />
       <h2>RoomAllocation</h2>
-      <RoomAllocation guest={8} room={3} />
+      <RoomAllocation guest={8} room={3} onChange={console.log} />
     </div>
   );
 };

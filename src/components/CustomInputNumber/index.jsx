@@ -18,6 +18,7 @@ const CustomInputNumber = ({
   const inputRef = useRef();
 
   useEffect(() => {
+    // console.log(val);
     typeof onChange !== "undefined" && onChange({ target: inputRef.current });
   }, [val]);
 
@@ -42,6 +43,25 @@ const CustomInputNumber = ({
     });
   };
 
+  const minusHandler = () => {
+    setVal((preVal) => {
+      const res = +preVal - step;
+      if (typeof min !== "undefined" && res < min) {
+        return min;
+      }
+      return res;
+    });
+  };
+  const addHandler = () => {
+    setVal((preVal) => {
+      const res = +preVal + step;
+      if (typeof max !== "undefined" && res > max) {
+        return max;
+      }
+      return res;
+    });
+  };
+
   // input框輸入
   const changeHandler = (e) => {
     setVal(getTargetValue(e.target.value));
@@ -49,11 +69,7 @@ const CustomInputNumber = ({
 
   return (
     <div className={classes.InputWrapper}>
-      <StepButton
-        onClick={() => clickHandler(-1)}
-        disabled={disabled}
-        variant="minus"
-      >
+      <StepButton onClick={minusHandler} disabled={disabled} variant="minus">
         -
       </StepButton>
       <input
@@ -65,7 +81,7 @@ const CustomInputNumber = ({
         disabled={disabled}
         onBlur={onBlur}
       />
-      <StepButton onClick={() => clickHandler(1)} disabled={disabled}>
+      <StepButton onClick={addHandler} disabled={disabled}>
         +
       </StepButton>
     </div>
