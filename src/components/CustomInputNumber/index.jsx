@@ -18,7 +18,6 @@ const CustomInputNumber = ({
   const inputRef = useRef();
 
   useEffect(() => {
-    // console.log(val);
     typeof onChange !== "undefined" && onChange({ target: inputRef.current });
   }, [val]);
 

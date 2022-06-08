@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classes from "./index.module.css";
 import Room from "./Room";
@@ -15,18 +15,10 @@ const RoomAllocation = ({ guest, room, onChange }) => {
     (pre, cur) => pre + cur.adult + cur.child,
     0
   );
-  // 人數全分配完畢
-  // const disabled = allocatedGuys >= guest;
-
-  // useEffect(() => {
-  //   console.log(allocatedGuys);
-  // }, [allocatedGuys]);
 
   const disabled = guest === room;
 
-  // use callback
   const roomChangeHandler = (index, data) => {
-    // console.log(index, data);
     setAllocationData((preData) => {
       const newAllocationData = preData.map((obj, i) => {
         if (i === index) {
