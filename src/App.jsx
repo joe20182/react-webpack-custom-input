@@ -8,13 +8,14 @@ const App = () => {
     <div className={classes.AppWrapper}>
       <h2>CustomInputNumber</h2>
       <CustomInputNumber
-        onBlur={() => {}}
-        onChange={() => {}}
+        onBlur={console.log}
+        onChange={console.log}
         max={10}
         min={-6}
         disabled={false}
         value={3}
         step={3}
+        name="test-input"
       />
       <h2>RoomAllocation</h2>
       <RoomAllocation guest={8} room={3} onChange={console.log} />

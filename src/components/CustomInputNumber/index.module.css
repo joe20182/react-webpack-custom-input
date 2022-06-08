@@ -33,7 +33,12 @@
   font-weight: 400;
   background-color: transparent;
 }
-.StepBtn:disabled {
+/* .StepBtn:disabled {
+  color: #ccc;
+  border: 1px solid #ccc;
+  cursor: no-drop;
+} */
+.StepBtn.Disabled {
   color: #ccc;
   border: 1px solid #ccc;
   cursor: no-drop;

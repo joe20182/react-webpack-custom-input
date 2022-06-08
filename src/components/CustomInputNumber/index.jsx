@@ -34,7 +34,7 @@ const CustomInputNumber = ({
   // 點擊step按鈕
   const clickHandler = (num) => {
     // 禁止增加
-    if (num === 1 && disableAdd) return;
+    // if (num === 1 && disableAdd) return;
 
     setVal((preVal) => {
       const res = +preVal + num * step;
@@ -51,7 +51,7 @@ const CustomInputNumber = ({
     <div className={classes.InputWrapper}>
       <StepButton
         onClick={() => clickHandler(-1)}
-        disabled={disabled}
+        disabled={disabled || val <= min}
         variant="minus"
       >
         -
@@ -65,7 +65,10 @@ const CustomInputNumber = ({
         disabled={disabled}
         onBlur={onBlur}
       />
-      <StepButton onClick={() => clickHandler(1)} disabled={disabled}>
+      <StepButton
+        onClick={() => clickHandler(1)}
+        disabled={disabled || val >= max}
+      >
         +
       </StepButton>
     </div>

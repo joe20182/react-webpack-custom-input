@@ -23,10 +23,12 @@ const StepButton = ({
 
   return (
     <button
-      className={variant === "minus" ? classes.MinusBtn : classes.AddBtn}
+      className={`${variant === "minus" ? classes.MinusBtn : classes.AddBtn} ${
+        disabled && classes.Disabled
+      }`}
       onClick={onClick}
       type="button"
-      disabled={disabled}
+      // disabled={disabled}
       onMouseDown={() => setIsHolding(true)}
       onMouseUp={() => setIsHolding(false)}
     >
